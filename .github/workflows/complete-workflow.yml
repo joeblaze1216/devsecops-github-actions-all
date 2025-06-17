@@ -1,4 +1,4 @@
-name: Build code, run unit test, run SAST, SCA, DAST security scans_lat
+name: Build code, run unit test, run SAST, SCA, DAST security scans_lat new
 on: push
 
 jobs:
