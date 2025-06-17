@@ -14,7 +14,7 @@ jobs:
         distribution: 'zulu'
         cache: maven
     - name: Run Sonar Analysis with cloud 1
-      run:  mvn -B verify sonar:sonar -Dsonar.projectKey=joeblaze1216_devsecops-github-actions-all  -Dsonar.organization=Johnny -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
+      run:  mvn -B verify sonar:sonar -Dsonar.projectKey=joeblaze1216_devsecops-github-actions-all  -Dsonar.organization=joeblaze1216 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
