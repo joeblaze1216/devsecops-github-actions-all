@@ -4,7 +4,7 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Run unit tests and SAST scan on the source code 
+    name: Run unit tests and SAST scan on the source code 1
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 21
@@ -13,20 +13,15 @@ jobs:
         java-version: '21'
         distribution: 'zulu'
         cache: maven
-    - name: Run Sonar Analysis with cloud
-      run:  >
-        mvn -B verify sonar:sonar
-        -Dsonar.projectKey=joeblaze1216_devsecops-github-actions-all
-        -Dsonar.organization=joeblaze1216 
-        -Dsonar.host.url=https://sonarcloud.io 
-        -Dsonar.login=${{ secrets.SONAR_TOKEN }}  
+    - name: Run Sonar Analysis with cloud 1
+      run:  mvm -B verify sonar:sonar -Dsonar.projectKey=joeblaze1216_devsecops-github-actions-all  -Dsonar.organization=Johnny -Dsonr.host.url=https::/sonarcloud.io -Dsonar.login=$SONAR_TOKEN
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
   security:
     runs-on: ubuntu-latest
     needs: build
-    name: Run the SCA scan on the source code
+    name: Run the SCA scan on the source code 1
     steps:
       - uses: actions/checkout@master
       - name: RunSnyk to check for vulnerabilities
